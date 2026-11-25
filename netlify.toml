@@ -1,0 +1,4 @@
+# Netlify 설정 — 고칠 필요 없습니다.
+[build]
+  publish = "public"
+  functions = "netlify/functions"

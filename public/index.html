@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f2a22" />
+  <title>Wish Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="tree-page">
+  <!-- 오너먼트 그림 (ornaments.js가 채움) -->
+  <svg id="ornament-defs" aria-hidden="true" width="0" height="0" style="position:absolute"></svg>
+
+  <!-- 거실 장면 (app.js가 그림) -->
+  <svg id="scene" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="크리스마스트리가 있는 거실"></svg>
+
+  <header class="title">
+    <p class="eyebrow">Merry Christmas</p>
+    <h1 id="treeTitle">Wish Tree</h1>
+    <p class="sub">소원을 적으면 오너먼트가 되어 트리에 달려요</p>
+    <p class="count"><span id="count">0</span>개의 소원이 반짝이는 중</p>
+  </header>
+
+  <nav class="actions">
+    <button id="btnMine" class="btn ghost" type="button">내 오너먼트 <span class="pill" id="mineCount">0</span></button>
+    <button id="btnWrite" class="btn primary" type="button"><span aria-hidden="true">✦</span> 소원 달기</button>
+  </nav>
+
+  <a class="teacher-link" href="teacher.html">교사용</a>
+  <div id="demoBanner" class="demo-banner" hidden>데모 모드 · 서버에 연결되지 않아 소원이 이 브라우저에만 저장돼요</div>
+
+  <!-- 소원 쓰기 -->
+  <div class="backdrop" id="writeBackdrop" hidden>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
+      <div class="sheet-head">
+        <h2 id="writeTitle">소원 쓰기</h2>
+        <button class="x" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <label class="field">
+        <span>닉네임</span>
+        <input id="nickname" maxlength="10" autocomplete="off" placeholder="2~10자" />
+      </label>
+      <div class="field">
+        <span>오너먼트 고르기 · <b id="ornName"></b></span>
+        <div id="ornGrid" class="orn-grid" role="radiogroup" aria-label="오너먼트"></div>
+      </div>
+      <label class="field">
+        <span>소원 <em class="counter"><span id="msgCount">0</span>/100</em></span>
+        <textarea id="message" maxlength="100" rows="3" placeholder="I wish… / I hope… / 나의 소원은…"></textarea>
+      </label>
+      <p class="hint">실명이나 전화번호는 쓰지 마세요.</p>
+      <p class="error" id="writeError" role="alert"></p>
+      <button id="btnSubmit" class="btn primary wide" type="button">트리에 달기</button>
+    </section>
+  </div>
+
+  <!-- 소원 카드 -->
+  <div class="backdrop center" id="cardBackdrop" hidden>
+    <article class="wish-card" role="dialog" aria-modal="true" aria-labelledby="cardMsg">
+      <button class="x" type="button" data-close aria-label="닫기">×</button>
+      <span class="mine-badge" id="cardMine" hidden>내 소원</span>
+      <svg class="card-orn" viewBox="-36 -10 72 82" aria-hidden="true"><use id="cardUse" href="#orn-bauble_red" /></svg>
+      <p class="card-msg" id="cardMsg"></p>
+      <p class="card-meta"><b id="cardName"></b> · <span id="cardTime"></span></p>
+      <div class="card-nav">
+        <button id="cardPrev" type="button" aria-label="이전 소원">‹</button>
+        <span id="cardPos"></span>
+        <button id="cardNext" type="button" aria-label="다음 소원">›</button>
+      </div>
+    </article>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="ornaments.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

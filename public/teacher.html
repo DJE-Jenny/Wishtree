@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>교사용 대시보드 · Wish Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="teacher-page">
+  <div class="t-wrap">
+    <header class="t-head">
+      <div>
+        <h1 id="tTitle">Wish Tree</h1>
+        <p>교사용 대시보드</p>
+      </div>
+      <a href="index.html">← 트리로 돌아가기</a>
+    </header>
+
+    <section class="t-card t-login" id="login">
+      <h2>교사 비밀번호</h2>
+      <p>비밀번호를 입력하면 모든 소원을 보고 CSV로 내려받을 수 있어요.</p>
+      <input id="pw" type="password" inputmode="numeric" autocomplete="current-password" placeholder="••••" />
+      <p class="error" id="loginError" role="alert"></p>
+      <button class="btn primary wide" id="btnLogin" type="button">들어가기</button>
+    </section>
+
+    <section id="dash" hidden>
+      <div class="t-stats">
+        <div class="t-stat"><b id="sTotal">0</b><span>전체 소원</span></div>
+        <div class="t-stat"><b id="sShown">0</b><span>트리에 보이는 소원</span></div>
+        <div class="t-stat"><b id="sHidden">0</b><span>숨긴 소원</span></div>
+        <div class="t-stat"><b id="sLock">열림</b><span>소원 달기 상태</span></div>
+      </div>
+      <div class="t-card">
+        <div class="t-tools">
+          <input id="q" type="search" placeholder="닉네임이나 소원으로 찾기" />
+          <button class="t-btn" id="btnRefresh" type="button">새로고침</button>
+          <button class="t-btn" id="btnLock" type="button">소원 달기 잠그기</button>
+          <button class="t-btn gold" id="btnCsv" type="button">CSV 다운로드</button>
+          <button class="t-btn" id="btnLogout" type="button">나가기</button>
+        </div>
+        <div class="t-table-wrap">
+          <table class="t-table">
+            <thead><tr><th>#</th><th>작성 시각</th><th>닉네임</th><th>오너먼트</th><th>소원</th><th>상태</th><th>관리</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="t-empty" id="empty" hidden>아직 달린 소원이 없어요.</p>
+        <p class="t-note" id="note"></p>
+      </div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="ornaments.js"></script>
+  <script src="api.js"></script>
+  <script src="teacher.js"></script>
+</body>
+</html>

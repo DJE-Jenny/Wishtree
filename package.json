@@ -1,0 +1,10 @@
+{
+  "name": "wish-tree",
+  "version": "1.0.0",
+  "private": true,
+  "description": "소원을 적으면 오너먼트가 되어 트리에 달리는 학급용 웹앱 (Netlify)",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.11"
+  }
+}
