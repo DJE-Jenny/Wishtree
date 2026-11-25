@@ -6,7 +6,7 @@
 window.WISH_TREE_CONFIG = {
   // 트리 주인 이름: "Eojin"을 바꾸면 화면 제목이 "○○'s Wish Tree"가 됩니다.
   //   예) ownerName: "Mr. Kim"  →  Mr. Kim's Wish Tree
-  ownerName: "Jen",
+  ownerName: "Eojin",
 
   // 다른 사람이 단 오너먼트를 확인하는 간격(초)
   pollSeconds: 5,
