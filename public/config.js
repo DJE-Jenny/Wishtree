@@ -4,7 +4,7 @@
  * ============================================================
  */
 window.WISH_TREE_CONFIG = {
-  // 트리 주인 이름: "Jen"을 바꾸면 화면 제목이 "○○'s Wish Tree"가 됩니다.
+  // 트리 주인 이름: "Eojin"을 바꾸면 화면 제목이 "○○'s Wish Tree"가 됩니다.
   //   예) ownerName: "Mr. Kim"  →  Mr. Kim's Wish Tree
   ownerName: "Jen",
 
